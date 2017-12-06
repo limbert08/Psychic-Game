@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HW3 | JavaScript </title>
-  <!--link rel="stylesheet" type="text/css" href="assets/css/reset.css"-->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <title>HW3 | JavaScript </title>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 
@@ -16,6 +16,7 @@
             <p>Guess what letter I'm thinking of :) </p>
         </div>
     </div>
+     <div id="screen">
     <script type="text/javascript">
     var arrayLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
@@ -25,6 +26,7 @@
     var tryRemaining = 10;
     var guessedLetters = [];
     document.onkeyup = function(event) {
+
         var userGuess = event.key;
         guessedLetters.push(userGuess);
         var randomLetter = arrayLetters[Math.floor(Math.random() * arrayLetters.length)];
@@ -42,16 +44,25 @@
             guessedLetters.length = 0;
             alert("Let's Play Another Round :)")
         }
+        
         var html = "<p> Guess what letter I'm thinking of...</p>" +
             "<p>Wins: " + userWins + "</p>" +
             "<p>Loses: " + userLosses + "</p>" +
             "<p>Guesses Left: " + tryRemaining + "</p>" +
             "<p>Your guesses so far: " + guessedLetters.join(', ') + "</p>";
-        //document.querySelector("#psychicGame").innerHTML = html;
 
-        document.getElementById("results").innerHTML = html;
-    }
+            document.getElementById("results").innerHTML = html;
+        
+
+           // $("#results").append(html);
+           // $("#results").append("<li>Footer</li>");
+        
+
+        
+    }  //onkeyup
+
     </script>
+     </div>
 </body>
 
 </html>
