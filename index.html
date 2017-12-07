@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>HW3 | JavaScript </title>   
+    <meta charset="UTF-8">
+    <title>HW3 | JavaScript </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-
 
 <body>
     <div id="psychicGame">
@@ -16,53 +16,53 @@
             <p>Guess what letter I'm thinking of :) </p>
         </div>
     </div>
-     <div id="screen">
-    <script type="text/javascript">
-    var arrayLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-    ];
-    var userWins = 0;
-    var userLosses = 0;
-    var tryRemaining = 10;
-    var guessedLetters = [];
-    document.onkeyup = function(event) {
+    <div id="screen">
+        <script type="text/javascript">
+        var arrayLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
+        var userWins = 0;
+        var userLosses = 0;
+        var tryRemaining = 10;
+        var guessedLetters = [];
+        document.onkeyup = function(event) {
 
-        var userGuess = event.key;
-        guessedLetters.push(userGuess);
-        var randomLetter = arrayLetters[Math.floor(Math.random() * arrayLetters.length)];
-        if (userGuess === randomLetter) {
-            userWins++;
-            tryRemaining = 10;
-        } else {
-            tryRemaining--;
-        }
+            var userGuess = event.key;
+            guessedLetters.push(userGuess);
+            var randomLetter = arrayLetters[Math.floor(Math.random() * arrayLetters.length)];
 
-        if (tryRemaining === 0) {
+            if (userGuess.toLowerCase() === randomLetter) {
+                userWins++;
+                tryRemaining = 10;
+            } else {
+                tryRemaining--;
+            }
 
-            userLosses++;
-            tryRemaining = 10;
-            guessedLetters.length = 0;
-            alert("Let's Play Another Round :)")
-        }
-        
-        var html = "<p> Guess what letter I'm thinking of...</p>" +
-            "<p>Wins: " + userWins + "</p>" +
-            "<p>Loses: " + userLosses + "</p>" +
-            "<p>Guesses Left: " + tryRemaining + "</p>" +
-            "<p>Your guesses so far: " + guessedLetters.join(', ') + "</p>";
+            if (tryRemaining === 0) {
 
-            //document.getElementById("results").innerHTML = html;
-        
+                userLosses++;
+                tryRemaining = 10;
+                guessedLetters.length = 0;
+                alert("Let's Play Another Round :)")
+            }
 
-            $("#results").html(html);
-           // $("#results").append("<li>Footer</li>");
-        
+            var html = "<p> Guess what letter I'm thinking of...</p>" +
+                "<p>Wins: " + userWins + "</p>" +
+                "<p>Loses: " + userLosses + "</p>" +
+                "<p>Guesses Left: " + tryRemaining + "</p>" +
+                "<p>Your guesses so far: " + guessedLetters.join(', ') + "</p>";
 
-        
-    }  //onkeyup
+            document.getElementById("results").innerHTML = html;
 
-    </script>
-     </div>
+
+            // $("#results").append(html);
+            // $("#results").append("<li>Footer</li>");
+
+
+
+        } //onkeyup
+        </script>
+    </div>
 </body>
 
 </html>
